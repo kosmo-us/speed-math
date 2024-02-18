@@ -237,13 +237,13 @@ def wrt_scrs():
             reader = csv.DictReader(scrfl)
             head = reader.fieldnames
     except FileNotFoundError:
-        print("scores_tracker file not present. Creating new!\n")
+        print("\nscores_tracker file not found! Creating new!")
         with open('score_tracker.csv', 'w') as fl:
             scrdt = csv.writer(fl)
             scrdt.writerow(tracker)
             head=["Date","Add Score", "Add Attempted", "Sub Score", "Sub Attempted","Table Score","Table Attempted","Squares Score","Squares Attempted","Cubes Score","Cubes Attempted","Reciprocals Score","Reciprocals Attempted"]
     if head!=tracker: 
-        print("\nEither no score history is present or the file has been modified.\nReseting file conents!")
+        print("\nEither no score history is present or the file has been modified.\nResetting file contents!")
         with open('score_tracker.csv', 'w') as fl:
             scrdt = csv.writer(fl)
             scrdt.writerow(tracker)
@@ -290,15 +290,13 @@ def start_ch():
         start_ch()
     elif f=="gg":
         if svd!=1:
-            i=input("\nLatest session scores are not saved, enter any key to save scores? N to discard\n")
+            i=input("\nLatest session scores are not saved, enter any key to save scores except for N to discard\n")
             if i.lower()!="n":
                 wrt_scrs()
-                print("\nProgram terminated!")
-                sys.exit(0) 
+            else:
+                print("\nTerminating program without saving scores....")
         else:
             print("\nSession scores have already been saved! Terminating....")
-            print("\nProgram terminated!")
-            sys.exit(0) 
         print("\nProgram terminated!")
         sys.exit(0)
     elif f=='s':
