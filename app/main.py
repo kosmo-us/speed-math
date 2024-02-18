@@ -30,6 +30,9 @@ def get_score():
     print("      Squares          "+str(data[6])+"             "+str(data[7]))
     print("      Cubes            "+str(data[8])+"             "+str(data[9]))
     print("      Reciprocals      "+str(data[10])+"             "+str(data[11]))
+    print("\n")
+    print("      Total            "+str(sum(data[0:11:2]))+"             "+str(sum(data[1:12:2])))
+    
 
 def res_scr():
     global score_add, score_sub, add_wrong, sub_wrong, score_tab, tab_wrong, score_square, square_wrong, score_cube, cube_wrong, score_recip,recip_wrong
@@ -66,8 +69,8 @@ def add_ch():
     if res.lower()!="gg":
         t = time.time() + 60 * 5
         while time.time() <= t:
-            a=r.randint(999, 999999)
-            b=r.randint(999, 999999)
+            a=r.randint(1000, 9999)
+            b=r.randint(1000, 9999)
             c=int_inp(str(a)+"+"+str(b)+"= ")
             ans=a+b
             if c==ans:
@@ -178,7 +181,8 @@ def cube_ch():
         while time.time() <= t:
             a=nums[i]
             c=int_inp(str(a)+" cubed = ")
-            ans=c**3
+            ans=a**3
+            print(ans)
             if c==ans:
                 score_cube+=1
                 print("Correct!")
@@ -200,7 +204,7 @@ def recip_ch():
     global recip_wrong
     global recip
     global svd
-    print("\nDo you remember your reciprocals? Answer reciprocals as percentage only and upto 2 places of decimal. For example. 1/2 as 50 (no % after your answer). Let's see! 20 secs")
+    print("\nDo you remember your reciprocals? Answer reciprocals as percentages only and upto 2 places of decimal. For example. 1/2 as 50 (no % after your answer). Let's see! 20 secs")
     res=input("Press any key to start, gg to skip")
     if res.lower()!="gg":
         t= time.time() + 20
