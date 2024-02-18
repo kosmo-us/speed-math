@@ -65,7 +65,7 @@ def add_ch():
     global add_wrong
     global svd
     print("\nAdd these numbers, 5 mins ")
-    res=input("Press any key to start, gg to skip")
+    res=input("Press any key to start, gg to skip\n")
     if res.lower()!="gg":
         t = time.time() + 60 * 5
         while time.time() <= t:
@@ -89,7 +89,7 @@ def sub_ch():
     global svd
     print("\nSubtract these numbers, enter absolute values, 5 mins")
     t = time.time() + 60 * 5
-    res=input("Press any key to start, gg to skip")
+    res=input("Press any key to start, gg to skip\n")
     if res.lower()!="gg":
         while time.time() <= t:
             a=r.randint(1000, 9999)
@@ -114,7 +114,7 @@ def tab_ch():
     global svd
     print("\nNow, let's see if you remember the multiplication table upto 30, 1 min")
     t= time.time() + 60
-    res=input("Press any key to start, gg to skip")
+    res=input("Press any key to start, gg to skip\n")
     if res.lower()!="gg":
         while time.time() <= t:
             a=r.randint(11, 30)
@@ -145,7 +145,7 @@ def sq_ch():
     r.shuffle(nums)
     print("\nDo you remember the squares upto 30? Let's see! 30 secs")
     t= time.time() + 30
-    res=input("Press any key to start, gg to skip")
+    res=input("Press any key to start, gg to skip\n")
     if res.lower()!="gg":
         while time.time() <= t:
             a=nums[i]
@@ -176,7 +176,7 @@ def cube_ch():
     r.shuffle(nums)
     print("\nDo you remember the cubes upto 15? Let's see! 30 secs")
     t= time.time() + 30
-    res=input("Press any key to start, gg to skip")
+    res=input("Press any key to start, gg to skip\n")
     if res.lower()!="gg":
         while time.time() <= t:
             a=nums[i]
@@ -205,7 +205,7 @@ def recip_ch():
     global recip
     global svd
     print("\nDo you remember your reciprocals? Answer reciprocals as percentages only and upto 2 places of decimal. For example. 1/2 as 50 (no % after your answer). Let's see! 20 secs")
-    res=input("Press any key to start, gg to skip")
+    res=input("Press any key to start, gg to skip\n")
     if res.lower()!="gg":
         t= time.time() + 20
         while time.time() <= t:
