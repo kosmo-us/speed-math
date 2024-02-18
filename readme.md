@@ -9,5 +9,5 @@ Not working:
 ## How to run:
 
 - Download this repo directly or <code>git clone https://github.com/kosmo-us/speed-math.git</code>
-- Move to "app" directory
+- Change to "app" directory
 - Excute <code>python main.py</code> in your terminal
