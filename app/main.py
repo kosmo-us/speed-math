@@ -68,8 +68,7 @@ def add_ch():
         while time.time() <= t:
             a=r.randint(999, 999999)
             b=r.randint(999, 999999)
-            print(a,b)
-            c=int_inp(str(a)+str(b)+"= ")
+            c=int_inp(str(a)+"+"+str(b)+"= ")
             ans=a+b
             if c==ans:
                 score_add+=1
@@ -290,7 +289,7 @@ def start_ch():
         start_ch()
     elif f=="gg":
         if svd!=1:
-            i=input("\nLatest session scores are not saved, enter any key to save scores except for N to discard\n")
+            i=input("\nLatest session scores have not been saved, enter any key to save scores to the score_tracker file except for N to discard\n")
             if i.lower()!="n":
                 wrt_scrs()
             else:
