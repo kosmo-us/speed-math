@@ -260,22 +260,60 @@ def wrt_scrs():
 
 
 def spec_ch():
+    global tab
+    global sqr
+    global cube
+    global recip
     tasks="a)   Addition \ns)   Subtraction \nsq)  Squares \nc)   Cubes \nt)   Tables \nr)   Reciprocals \ngg)  Back to main menu"
     t=input("\nAvailable tasks:\n"+tasks+"\n\nPlease enter your option: ")
     if t=="gg":
         start_ch()
     elif t.lower()=="a":
-        add_ch(300)
+        print("\nFour digit addition [5 mins] ")
+        res=input("Press any key to start, gg to skip -> ")
+        if res.lower()!="gg":
+            add_ch(300)
     elif t.lower()=="s":
-        sub_ch(300)
+        print("\nFour digit subtraction, enter absolute values only. [5 mins]")
+        res=input("Press any key to start, gg to skip -> ")
+        if res.lower()!="gg":
+            sub_ch(300)
     elif t.lower()=="sq":
-        sq_ch(30)
+        print("\nDo you remember the squares upto 30? Let's see! [30 secs]")
+        res=input("Press any key to start, gg to skip -> ")
+        if res.lower()!="gg":
+            sq_ch(30)
+            if len(sqr)!=0:
+                print("Squares you got wrong:", end=" ")
+                print(*sqr, sep=", ")
+                sqr=[]
     elif t.lower()=="c":
-        cube_ch(30)
+        print("\nDo you remember the cubes upto 15? Let's see! 15 secs")
+        res=input("Press any key to start, gg to skip -> ")
+        if res.lower()!="gg":
+            cube_ch(15)
+            if len(cube)!=0:
+                print("Cubes you got wrong:", end=" ")
+                print(*cube, sep=", ")
+                cube=[]
     elif t.lower()=="t":
-        tab_ch(30)
+        print("\nNow, let's see if you remember the multiplication table upto 30. [1 min]")
+        res=input("Press any key to start, gg to skip -> ")
+        if res.lower()!="gg":
+            tab_ch(60)
+            if len(tab)!=0:
+                print("Tables you got wrong:", end=" ")
+                print(*tab, sep=", ")
+                tab=[]
     elif t.lower()=="r":
-        recip_ch(30)  
+        print("\nDo you remember your reciprocals? Answer reciprocals as percentage only and upto 2 places of decimal. For example, 1/2 as 50 (no % after your answer). Let's see! [30 secs]")
+        res=input("Press any key to start, gg to skip -> ")
+        if res.lower()!="gg":
+            recip_ch(30)
+            if len(recip)!=0:
+                print("Reciprocals you got wrong:", end=" ")
+                print(*recip, sep=", ")
+                recip=[]
     else:
         print("\nEnter a valid option")
         spec_ch()
@@ -338,7 +376,7 @@ def start_ch():
                 print("Squares you got wrong:", end=" ")
                 print(*sqr, sep=", ")
                 sqr=[]
-        print("\nDo you remember the cubes upto 15? Let's see! 30 secs")
+        print("\nDo you remember the cubes upto 15? Let's see! 15 secs")
         res=input("Press any key to start, gg to skip -> ")
         if res.lower()!="gg":
             cube_ch(30)
