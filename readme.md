@@ -6,7 +6,7 @@ Currently in alpha phase, more features to be added. Please raise issues if you 
 
 
 ### Known issues:
-- Reciprocal test: minor float handling issue.   <code>fixed</code> 
+- Reciprocal test: minor float handling issue.     <code>fixed</code> 
 - Final input prompt in a task keeps running after time out until an input is given.
 
 ### How to run:
@@ -33,7 +33,7 @@ This needs to have python3 installed on your machine, recommended python version
 
 - Custom full challenge mode to choose which tasks to include in the full challenge mode with custom time limit.
 - Store the custom challenge profiles to disk.
-- Rapid mode, a short challenge mode with random tasks to complete.
+- Rapid mode, a short challenge mode with random tasks to complete.    <code>Added, renamed to challenge mode</code>
 
 ### How to use this program
 
