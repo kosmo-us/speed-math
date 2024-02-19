@@ -1,7 +1,7 @@
 ## Speed math challenge
 
 A simple speed math python program to improve your speed math.
-Currently in beta phase, more features to be added. Please raise issues if you find bugs or want new features/tasks.
+Currently in alpha phase, more features to be added. Please raise issues if you find bugs or want new features/tasks.
 
 
 
