@@ -368,10 +368,10 @@ def start_ch():
     elif f.lower()=='f':
         rapidsc=0
         rapidat=0
-        print("\nWelcome to challenge mode [5 mins]")
+        print("\nWelcome to challenge mode [10 mins]")
         res=input("Press any key to start, gg to go back to main menu -> ")
         if res.lower()!="gg":
-            rapid_mode(300)
+            rapid_mode(600)
             print("\nYou scored "+str(rapidsc)+" out of "+str(rapidat)+" problems that you attempted" )
         rapidsc=0
         rapidat=0
