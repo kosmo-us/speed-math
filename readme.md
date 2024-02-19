@@ -11,11 +11,21 @@ Currently in beta phase, more features to be added. Please raise issues if you f
 
 ### How to run:
 
+#### Windows:
+
+Since windows users usually aren't familiar with the command line. I decided to releases especially for windows. *Windows defender may flag the executable as "unrecognised" but it is completely safe to run the file. If you still have doubts, you can just follow the next method below which has the source visible*.<br>
+Follow the steps below to download the exe file.
+- Go to [releases](https://github.com/kosmo-us/speed-math/releases)
+- Find the latest release 
+- Download the zip -> extract -> run the exe.
+
+#### General (for every OS including windows):
+
 - Download this repo directly or run <code>git clone https://github.com/kosmo-us/speed-math.git</code> in your terminal.
 - Change to "app" directory
 - Excute <code>python main.py</code> in your terminal
 
-### Recommended python version: python3
+This needs to have python3 installed on your machine, recommended python version: python3
 
 ### Implementations to come:
 
@@ -25,7 +35,7 @@ Currently in beta phase, more features to be added. Please raise issues if you f
 
 ### How to use this program
 
-You can go through the complete challenge which is a compilation of all the tasks available, each task has a set period of time to complete
+You may go through the complete challenge which is a compilation of all the tasks available, each task has a set period of time to complete
 or practice specific tasks as well. Scores are available immediately after a task is completed or, in case of complete challenge, after the complete challenege has been completed. Date wise scores can saved to a csv file within the program directory.
 <br>
 <br>
