@@ -48,7 +48,7 @@ def int_inp(p):
         inp=int(input(p))
         return inp
     except ValueError:
-        print("That's not an integer! Try again.\n")
+        print("That's not an integer! Try again.")
         int_inp(p)
 
 def inp_float(p):
@@ -56,7 +56,7 @@ def inp_float(p):
         inp=float(input(p))
         return inp
     except ValueError:
-        print("Not a valid input! Try again.\n")
+        print("Not a valid input! Try again.")
         inp_float(p)
     
 
@@ -65,18 +65,18 @@ def add_ch():
     global score_add
     global add_wrong
     global svd
-    print("\nAdd these numbers, 5 mins ")
-    res=input("Press any key to start, gg to skip")
+    print("\nAdd these numbers. [5 mins] ")
+    res=input("Press any key to start, gg to skip -> ")
     if res.lower()!="gg":
         t = time.time() + 60 * 5
         while time.time() <= t:
             a=r.randint(1000, 9999)
             b=r.randint(1000, 9999)
-            c=int_inp(str(a)+"+"+str(b)+"= ")
+            c=int_inp("\n"+str(a)+"+"+str(b)+"= ")
             ans=a+b
             if c==ans:
                 score_add+=1
-                print("Correct!")
+                print("Correct!\n")
             else:
                 add_wrong+=1
                 print("Wrong!")
@@ -88,19 +88,19 @@ def sub_ch():
     global score_sub
     global sub_wrong
     global svd
-    print("\nSubtract these numbers, enter absolute values, 5 mins")
+    print("\nSubtract these numbers, enter absolute values only. [5 mins]")
     t = time.time() + 60 * 5
-    res=input("Press any key to start, gg to skip")
+    res=input("Press any key to start, gg to skip -> ")
     if res.lower()!="gg":
         while time.time() <= t:
             a=r.randint(1000, 9999)
             b=r.randint(1000, 9999)
             #print("|"+a+"-"+b+"|= ")
-            c=int_inp("|"+str(a)+"-"+str(b)+"|= ")
+            c=int_inp("\n"+"|"+str(a)+"-"+str(b)+"|= ")
             ans=abs(a-b)
             if c==ans:
                 score_sub+=1
-                print("Correct!")
+                print("Correct!\n")
             else:
                 sub_wrong+=1
                 print("Wrong!")
@@ -113,18 +113,18 @@ def tab_ch():
     global tab_wrong
     global tab
     global svd
-    print("\nNow, let's see if you remember the multiplication table upto 30, 1 min")
+    print("\nNow, let's see if you remember the multiplication table upto 30. [1 min]")
     t= time.time() + 60
-    res=input("Press any key to start, gg to skip")
+    res=input("Press any key to start, gg to skip -> ")
     if res.lower()!="gg":
         while time.time() <= t:
             a=r.randint(11, 30)
             b=r.randint(3, 30)
-            c=int_inp(str(a)+" times"+str(b)+"= ")
+            c=int_inp("\n"+str(a)+" times"+str(b)+"= ")
             ans=a*b
             if c==ans:
                 score_tab+=1
-                print("Correct!")
+                print("Correct!\n")
             else:
                 tab_wrong+=1
                 tab+=[str(a)]
@@ -144,17 +144,17 @@ def sq_ch():
     i=0
     nums = list(range(5, 25))
     r.shuffle(nums)
-    print("\nDo you remember the squares upto 30? Let's see! 30 secs")
+    print("\nDo you remember the squares upto 30? Let's see! [30 secs]")
     t= time.time() + 30
-    res=input("Press any key to start, gg to skip")
+    res=input("Press any key to start, gg to skip -> ")
     if res.lower()!="gg":
-        while time.time() <= t:
+        while time.time() <= t and i<len(nums):
             a=nums[i]
-            c=int_inp(str(a)+" squared= ")
+            c=int_inp("\n"+str(a)+" squared= ")
             ans=a**2
             if c==ans:
                 score_square+=1
-                print("Correct!")
+                print("Correct!\n")
             else:
                 square_wrong+=1
                 sqr+=[str(a)]
@@ -177,11 +177,11 @@ def cube_ch():
     r.shuffle(nums)
     print("\nDo you remember the cubes upto 15? Let's see! 30 secs")
     t= time.time() + 30
-    res=input("Press any key to start, gg to skip")
+    res=input("Press any key to start, gg to skip -> ")
     if res.lower()!="gg":
-        while time.time() <= t:
+        while time.time() <= t and i<len(nums):
             a=nums[i]
-            c=int_inp(str(a)+" cubed = ")
+            c=int_inp("\n"+str(a)+" cubed = ")
             ans=a**3
             print(ans)
             if c==ans:
@@ -205,8 +205,8 @@ def recip_ch():
     global recip_wrong
     global recip
     global svd
-    print("\nDo you remember your reciprocals? Answer reciprocals as percentage only and upto 2 places of decimal. For example. 1/2 as 50 (no % after your answer). Let's see! 20 secs")
-    res=input("Press any key to start, gg to skip")
+    print("\nDo you remember your reciprocals? Answer reciprocals as percentage only and upto 2 places of decimal. For example, 1/2 as 50 (no % after your answer). Let's see! [20 secs]")
+    res=input("Press any key to start, gg to skip -> ")
     if res.lower()!="gg":
         t= time.time() + 20
         while time.time() <= t:
@@ -240,17 +240,17 @@ def wrt_scrs():
             head = reader.fieldnames
     except FileNotFoundError:
         print("\nscores_tracker file not found! Creating new!")
-        with open('score_tracker.csv', 'w') as fl:
+        with open('score_tracker.csv', 'w', newline='') as fl:
             scrdt = csv.writer(fl)
             scrdt.writerow(tracker)
             head=["Date","Add Score", "Add Attempted", "Sub Score", "Sub Attempted","Table Score","Table Attempted","Squares Score","Squares Attempted","Cubes Score","Cubes Attempted","Reciprocals Score","Reciprocals Attempted"]
     if head!=tracker: 
         print("\nEither no score history is present or the file has been modified.\nResetting file contents!")
-        with open('score_tracker.csv', 'w') as fl:
+        with open('score_tracker.csv', 'w', newline='') as fl:
             scrdt = csv.writer(fl)
             scrdt.writerow(tracker)
             print(head)
-    scrfl=open('score_tracker.csv','a')
+    scrfl=open('score_tracker.csv','a', newline='')
     scrdt=csv.writer(scrfl)
     scrdt.writerow(data)
     scrfl.close()
@@ -259,22 +259,25 @@ def wrt_scrs():
 
 
 def spec_ch():
-    tasks="a) Addition, s) Subtraction, sq) Squares, c) Cubes, t) Tables, r) Reciprocals, gg) Back to main menu"
-    t=input("\nAvailable tasks: "+tasks+"\nPlease enter your option: ")
+    tasks="a)   Addition \ns)   Subtraction \nsq)  Squares \nc)   Cubes \nt)   Tables \nr)   Reciprocals \ngg)  Back to main menu"
+    t=input("\nAvailable tasks:\n"+tasks+"\n\nPlease enter your option: ")
     if t=="gg":
         start_ch()
-    if t.lower()=="a":
+    elif t.lower()=="a":
         add_ch()
-    if t.lower()=="s":
+    elif t.lower()=="s":
         sub_ch()
-    if t.lower()=="sq":
+    elif t.lower()=="sq":
         sq_ch()
-    if t.lower()=="c":
+    elif t.lower()=="c":
         cube_ch()
-    if t.lower()=="t":
+    elif t.lower()=="t":
         tab_ch()
-    if t.lower()=="r":
+    elif t.lower()=="r":
         recip_ch()  
+    else:
+        print("\nEnter a valid option")
+        spec_ch()
     print("\nChallenge completed!")
     get_score()
     spec_ch()    
@@ -282,8 +285,8 @@ def spec_ch():
         
 
 def start_ch():
-    print("\nWould you like to \na)  Go through the complete challenge \nb)  Try a specific challenge? \nr)  Reset the score_tracker file  \ns)  Save current scores to the score_tracker file \nv)  View session scores \nd)  Reset session score\ngg) Exit")
-    f=input("Enter your choice: ")
+    print("\nWould you like to \na)  Go through the complete challenge \nb)  Try a specific challenge \nr)  Reset the score_tracker file, this will erase all the saved scores.  \ns)  Save current scores to the score_tracker file \nv)  View session scores \nd)  Reset session score\ngg) Exit, you can save your scores before exiting as well.")
+    f=input("\nEnter your choice: ")
     if f.lower()=="r":
         filename = "score_tracker.csv"
         fl = open(filename, "w+")
@@ -319,14 +322,13 @@ def start_ch():
         start_ch()
     elif f.lower()=="d":
         res_scr()
-        print("\nReset complete")
-        get_score()
+        print("\nSession scores have been reset!")
         start_ch()
     else:
         print("\nWrong input")
         start_ch()
     start_ch()    
 #get_score()
-print("\nWelcome to the speed math challange, each test has some limited time to complete, try to get as much score as possible. \nI advise taking this test (or any other) daily to improve faster. Please don't use calculators and try to use pen as less as possible. You are only cheating yourself by using a calculator.\n")
+print("\nWelcome to the speed math challange, each test has some limited time to complete, try to get as much score as possible. \nI advise taking this test (or any other) daily to improve faster. Please don't use calculators and try to use pen as less as possible. You are only cheating with yourself by using a calculator.\n")
 start_ch()
         

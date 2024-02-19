@@ -1,13 +1,12 @@
 ## Speed math challenge
 
 A simple speed math python program to improve your speed math.
-Currently in beta phase, more features to be added. Please raise issues if you find bugs.
+Currently in beta phase, more features to be added. Please raise issues if you find bugs or want new features/tasks.
 
-Date wise scores can saved to a csv file within the program directory
 
 
 ### Known issues:
-- Reciprocal test: minor float handling issue. Will be fixed soon
+- Reciprocal test: minor float handling issue.   <code>fixed</code> 
 - Final input prompt in a task keeps running after time out until an input is given.
 
 ### How to run:
@@ -27,7 +26,7 @@ Date wise scores can saved to a csv file within the program directory
 ### How to use this program
 
 You can go through the complete challenge which is a compilation of all the tasks available, each task has a set period of time to complete
-or practice specific tasks as well. Scores are available immediately after a task is completed or, in case of complete challenge, after the complete challenege has been completed.
+or practice specific tasks as well. Scores are available immediately after a task is completed or, in case of complete challenge, after the complete challenege has been completed. Date wise scores can saved to a csv file within the program directory.
 <br>
 <br>
 **Tips to improve speed math**
