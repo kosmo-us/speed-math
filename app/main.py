@@ -43,15 +43,6 @@ def res_scr():
     cube=[]
     recip=[]
 
-'''def wrt_head():
-    tracker=["Date","Add Score", "Add attempted", "Sub Score", "Sub attempted","Table Score","Table attempted","Square Score","Squares attempted","Cube Score","Cubes attempted","Reciprocals\' Score","Reciprocals attempted"]
-    scores = open('score_tracker.csv', 'w')
-    scrwr=csv.writer(scores)
-    scrwr.writerow(tracker)
-    scores.close()'''
-    
-    
-# Addition challenge
 def int_inp(p):
     try:
         inp=int(input(p))
@@ -59,13 +50,23 @@ def int_inp(p):
     except ValueError:
         print("That's not an integer! Try again.\n")
         int_inp(p)
+
+def inp_float(p):
+    try:
+        inp=float(input(p))
+        return inp
+    except ValueError:
+        print("Not a valid input! Try again.\n")
+        inp_float(p)
     
+
+# Addition challenge    
 def add_ch():
     global score_add
     global add_wrong
     global svd
     print("\nAdd these numbers, 5 mins ")
-    res=input("Press any key to start, gg to skip\n")
+    res=input("Press any key to start, gg to skip")
     if res.lower()!="gg":
         t = time.time() + 60 * 5
         while time.time() <= t:
@@ -89,7 +90,7 @@ def sub_ch():
     global svd
     print("\nSubtract these numbers, enter absolute values, 5 mins")
     t = time.time() + 60 * 5
-    res=input("Press any key to start, gg to skip\n")
+    res=input("Press any key to start, gg to skip")
     if res.lower()!="gg":
         while time.time() <= t:
             a=r.randint(1000, 9999)
@@ -114,7 +115,7 @@ def tab_ch():
     global svd
     print("\nNow, let's see if you remember the multiplication table upto 30, 1 min")
     t= time.time() + 60
-    res=input("Press any key to start, gg to skip\n")
+    res=input("Press any key to start, gg to skip")
     if res.lower()!="gg":
         while time.time() <= t:
             a=r.randint(11, 30)
@@ -145,7 +146,7 @@ def sq_ch():
     r.shuffle(nums)
     print("\nDo you remember the squares upto 30? Let's see! 30 secs")
     t= time.time() + 30
-    res=input("Press any key to start, gg to skip\n")
+    res=input("Press any key to start, gg to skip")
     if res.lower()!="gg":
         while time.time() <= t:
             a=nums[i]
@@ -176,7 +177,7 @@ def cube_ch():
     r.shuffle(nums)
     print("\nDo you remember the cubes upto 15? Let's see! 30 secs")
     t= time.time() + 30
-    res=input("Press any key to start, gg to skip\n")
+    res=input("Press any key to start, gg to skip")
     if res.lower()!="gg":
         while time.time() <= t:
             a=nums[i]
@@ -204,26 +205,24 @@ def recip_ch():
     global recip_wrong
     global recip
     global svd
-    print("\nDo you remember your reciprocals? Answer reciprocals as percentages only and upto 2 places of decimal. For example. 1/2 as 50 (no % after your answer). Let's see! 20 secs")
-    res=input("Press any key to start, gg to skip\n")
+    print("\nDo you remember your reciprocals? Answer reciprocals as percentage only and upto 2 places of decimal. For example. 1/2 as 50 (no % after your answer). Let's see! 20 secs")
+    res=input("Press any key to start, gg to skip")
     if res.lower()!="gg":
         t= time.time() + 20
         while time.time() <= t:
             num=r.randint(1, 11)
             den=r.randint(1, 12)
             if num<den:
-                c=float(input(str(num)+"/"+str(den)+"% = "))
-                if num*100%den==0:
-                    ans=num*100//den
-                else:
-                    ans='%.2f'%(num/den*100)
-                if c==ans:
+                c='%.3f'%inp_float("\n"+str(num)+"/"+str(den)+"% = ")
+                c=str(c[:-1])
+                ans='%.3f'%(num*100/den)
+                ans=str(ans[:-1])
+                if str(c)==str(ans):
                     score_recip+=1
                     print("Correct!")
                 else:
                     recip_wrong+=1
                     recip+=[str(num)+"/"+str(den)]
-                    print(recip_wrong)
                     print("Wrong!")
                     print("Correct answer: "+str(ans)+"\n")        
     svd=0
