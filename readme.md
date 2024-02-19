@@ -13,11 +13,13 @@ Currently in beta phase, more features to be added. Please raise issues if you f
 
 #### Windows:
 
-Since windows users usually aren't familiar with the command line. I decided to releases especially for windows. *Windows defender may flag the executable as "unrecognised" but it is completely safe to run the file. If you still have doubts, you can just follow the next method below which has the source visible*.<br>
+Since windows users usually aren't familiar with the command line. I decided to release builds especially for windows.<br>
 Follow the steps below to download the exe file.
 - Go to [releases](https://github.com/kosmo-us/speed-math/releases)
 - Find the latest release 
 - Download the zip -> extract -> run the exe.
+
+<br>*Windows defender may flag the executable as "unrecognised" but it is completely safe to run the file. If you still have doubts, you can just follow the next method below which has the source visible*
 
 #### General (for every OS including windows):
 
@@ -25,7 +27,7 @@ Follow the steps below to download the exe file.
 - Change to "app" directory
 - Excute <code>python main.py</code> in your terminal
 
-This needs to have python3 installed on your machine, recommended python version: python3
+This needs to have python3 installed on your machine, recommended python version: python 3.6+
 
 ### Implementations to come:
 
