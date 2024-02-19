@@ -20,6 +20,8 @@ recip=[]
 data=[]
 tracker=["Date","Add Score", "Add Attempted", "Sub Score", "Sub Attempted","Table Score","Table Attempted","Squares Score","Squares Attempted","Cubes Score","Cubes Attempted","Reciprocals Score","Reciprocals Attempted"]
 svd=0
+rapidsc=0
+rapidat=0
     
 def get_score():
     data=[score_add,score_add+add_wrong,score_sub,sub_wrong+score_sub,score_tab,score_tab+tab_wrong,score_square,score_square+square_wrong,score_cube,score_cube+cube_wrong,score_recip,score_recip+recip_wrong]
@@ -61,175 +63,174 @@ def inp_float(p):
     
 
 # Addition challenge    
-def add_ch():
+def add_ch(s):
     global score_add
     global add_wrong
     global svd
-    print("\nAdd these numbers. [5 mins] ")
-    res=input("Press any key to start, gg to skip -> ")
-    if res.lower()!="gg":
-        t = time.time() + 60 * 5
-        while time.time() <= t:
-            a=r.randint(1000, 9999)
-            b=r.randint(1000, 9999)
-            c=int_inp("\n"+str(a)+"+"+str(b)+"= ")
-            ans=a+b
-            if c==ans:
-                score_add+=1
-                print("Correct!\n")
-            else:
-                add_wrong+=1
-                print("Wrong!")
-                print("Correct answer "+str(ans)+"\n")
+    global rapidsc
+    global rapidat
+    t = time.time() + s
+    while time.time() <= t:
+        rapidat+=1
+        a=r.randint(1000, 9999)
+        b=r.randint(1000, 9999)
+        c=int_inp("\n"+str(a)+"+"+str(b)+" = ")
+        ans=a+b
+        if c==ans:
+            score_add+=1
+            rapidsc+=1
+            print("Correct!\n")
+        else:
+            add_wrong+=1
+            print("Wrong!")
+            print("Correct answer "+str(ans)+"\n")
     svd=0
 
 #Subtraction challenge
-def sub_ch():
+def sub_ch(s):
     global score_sub
     global sub_wrong
     global svd
-    print("\nSubtract these numbers, enter absolute values only. [5 mins]")
-    t = time.time() + 60 * 5
-    res=input("Press any key to start, gg to skip -> ")
-    if res.lower()!="gg":
-        while time.time() <= t:
-            a=r.randint(1000, 9999)
-            b=r.randint(1000, 9999)
-            #print("|"+a+"-"+b+"|= ")
-            c=int_inp("\n"+"|"+str(a)+"-"+str(b)+"|= ")
-            ans=abs(a-b)
-            if c==ans:
-                score_sub+=1
-                print("Correct!\n")
-            else:
-                sub_wrong+=1
-                print("Wrong!")
-                print("Correct answer: "+str(ans)+"\n")
+    global rapidsc
+    global rapidat
+    t = time.time() + s
+    while time.time() <= t:
+        rapidat==1
+        a=r.randint(1000, 9999)
+        b=r.randint(1000, 9999)
+        #print("|"+a+"-"+b+"|= ")
+        c=int_inp("\n"+"|"+str(a)+"-"+str(b)+"| = ")
+        ans=abs(a-b)
+        if c==ans:
+            score_sub+=1
+            rapidsc+=1
+            print("Correct!\n")
+        else:
+            sub_wrong+=1
+            print("Wrong!")
+            print("Correct answer: "+str(ans)+"\n")
+        
     svd=0
 
 #Tables
-def tab_ch():
+def tab_ch(s):
     global score_tab
     global tab_wrong
     global tab
     global svd
-    print("\nNow, let's see if you remember the multiplication table upto 30. [1 min]")
-    t= time.time() + 60
-    res=input("Press any key to start, gg to skip -> ")
-    if res.lower()!="gg":
-        while time.time() <= t:
-            a=r.randint(11, 30)
-            b=r.randint(3, 30)
-            c=int_inp("\n"+str(a)+" times"+str(b)+"= ")
-            ans=a*b
-            if c==ans:
-                score_tab+=1
-                print("Correct!\n")
-            else:
-                tab_wrong+=1
-                tab+=[str(a)]
-                print("Wrong!")
-                print("Correct answer: "+str(ans)+"\n")
+    global rapidsc
+    global rapidat
+    t= time.time() + s
+    while time.time() <= t:
+        rapidat+=1
+        a=r.randint(11, 30)
+        b=r.randint(2, 10)
+        c=int_inp("\n"+str(a)+" times "+str(b)+" = ")
+        ans=a*b
+        if c==ans:
+            score_tab+=1
+            rapidsc+=1
+            print("Correct!\n")
+        else:
+            tab_wrong+=1
+            tab+=[str(a)]
+            print("Wrong!")
+            print("Correct answer: "+str(ans)+"\n")    
     svd=0
-    if len(tab)!=0:
-        print("Tables you got wrong:", end=" ")
-        print(*tab, sep=", ")
-        tab=[]
+    
 #Squares
-def sq_ch():
+def sq_ch(s):
     global square_wrong
     global sqr
     global score_square
     global svd
+    global rapidsc
+    global rapidat
     i=0
     nums = list(range(5, 25))
     r.shuffle(nums)
-    print("\nDo you remember the squares upto 30? Let's see! [30 secs]")
-    t= time.time() + 30
-    res=input("Press any key to start, gg to skip -> ")
-    if res.lower()!="gg":
-        while time.time() <= t and i<len(nums):
-            a=nums[i]
-            c=int_inp("\n"+str(a)+" squared= ")
-            ans=a**2
-            if c==ans:
-                score_square+=1
-                print("Correct!\n")
-            else:
-                square_wrong+=1
-                sqr+=[str(a)]
-                print("Wrong!")
-                print("Correct answer: "+str(ans)+"\n")
-            i+=1
+    
+    t= time.time() + s
+    while time.time() <= t and i<len(nums):
+        rapidat+=1
+        a=nums[i]
+        c=int_inp("\n"+str(a)+" squared = ")
+        ans=a**2
+        if c==ans:
+            score_square+=1
+            rapidsc+=1
+            print("Correct!\n")
+        else:
+            square_wrong+=1
+            sqr+=[str(a)]
+            print("Wrong!")
+            print("Correct answer: "+str(ans)+"\n")
+        i+=1   
     svd=0
-    if len(sqr)!=0:
-        print("Squares you got wrong:", end=" ")
-        print(*sqr, sep=", ")
-        sqr=[]
+    
 #Cubes
-def cube_ch():
+def cube_ch(s):
     global score_cube
     global cube_wrong
     global cube
     global svd
+    global rapidsc
+    global rapidat
     i=0
     nums = list(range(4, 15))
     r.shuffle(nums)
-    print("\nDo you remember the cubes upto 15? Let's see! 30 secs")
-    t= time.time() + 30
-    res=input("Press any key to start, gg to skip -> ")
-    if res.lower()!="gg":
-        while time.time() <= t and i<len(nums):
-            a=nums[i]
-            c=int_inp("\n"+str(a)+" cubed = ")
-            ans=a**3
-            print(ans)
-            if c==ans:
-                score_cube+=1
-                print("Correct!")
-            else:
-                cube_wrong+=1
-                cube+=[str(a)]
-                print("Wrong!")
-                print("Correct answer: "+str(ans)+"\n")
-            i+=1
+    
+    t= time.time() + s
+    while time.time() <= t and i<len(nums):
+        rapidat+=1
+        a=nums[i]
+        c=int_inp("\n"+str(a)+" cubed = ")
+        ans=a**3
+        print(ans)
+        if c==ans:
+            score_cube+=1
+            rapidsc+=1
+            
+            print("Correct!")
+        else:
+            cube_wrong+=1
+            cube+=[str(a)]
+            print("Wrong!")
+            print("Correct answer: "+str(ans)+"\n")
+        i+=1    
     svd=0
-    if len(cube)!=0:
-        print("Cubes you got wrong:", end=" ")
-        print(*cube, sep=", ")
-        cube=[]
+    
 #Reciprocals
 
-def recip_ch():
+def recip_ch(s):
     global score_recip
     global recip_wrong
     global recip
     global svd
-    print("\nDo you remember your reciprocals? Answer reciprocals as percentage only and upto 2 places of decimal. For example, 1/2 as 50 (no % after your answer). Let's see! [20 secs]")
-    res=input("Press any key to start, gg to skip -> ")
-    if res.lower()!="gg":
-        t= time.time() + 20
-        while time.time() <= t:
-            num=r.randint(1, 11)
-            den=r.randint(1, 12)
-            if num<den:
-                c='%.3f'%inp_float("\n"+str(num)+"/"+str(den)+"% = ")
-                c=str(c[:-1])
-                ans='%.3f'%(num*100/den)
-                ans=str(ans[:-1])
-                if str(c)==str(ans):
-                    score_recip+=1
-                    print("Correct!")
-                else:
-                    recip_wrong+=1
-                    recip+=[str(num)+"/"+str(den)]
-                    print("Wrong!")
-                    print("Correct answer: "+str(ans)+"\n")        
+    global rapidsc
+    global rapidat
+    t= time.time() + s
+    while time.time() <= t:
+        num=r.randint(1, 11)
+        den=r.randint(1, 12)
+        if num<den:
+            rapidat+=1
+            c='%.3f'%inp_float("\n"+str(num)+"/"+str(den)+"% = ")
+            c=str(c[:-1])
+            ans='%.3f'%(num*100/den)
+            ans=str(ans[:-1])
+            if str(c)==str(ans):
+                score_recip+=1
+                rapidsc+=1
+                print("Correct!")
+            else:
+                recip_wrong+=1
+                recip+=[str(num)+"/"+str(den)]
+                print("Wrong!")
+                print("Correct answer: "+str(ans)+"\n")
+    
     svd=0
-    if len(recip)!=0:
-        print("Reciprocals you got wrong:", end=" ")
-        print(*recip, sep=", ")
-        recip=[]
+    
 #CSV Writer/Updater
 def wrt_scrs():
     global svd
@@ -249,7 +250,7 @@ def wrt_scrs():
         with open('score_tracker.csv', 'w', newline='') as fl:
             scrdt = csv.writer(fl)
             scrdt.writerow(tracker)
-            print(head)
+            #print(head)
     scrfl=open('score_tracker.csv','a', newline='')
     scrdt=csv.writer(scrfl)
     scrdt.writerow(data)
@@ -264,17 +265,17 @@ def spec_ch():
     if t=="gg":
         start_ch()
     elif t.lower()=="a":
-        add_ch()
+        add_ch(300)
     elif t.lower()=="s":
-        sub_ch()
+        sub_ch(300)
     elif t.lower()=="sq":
-        sq_ch()
+        sq_ch(30)
     elif t.lower()=="c":
-        cube_ch()
+        cube_ch(30)
     elif t.lower()=="t":
-        tab_ch()
+        tab_ch(30)
     elif t.lower()=="r":
-        recip_ch()  
+        recip_ch(30)  
     else:
         print("\nEnter a valid option")
         spec_ch()
@@ -285,7 +286,13 @@ def spec_ch():
         
 
 def start_ch():
-    print("\nWould you like to \na)  Go through the complete challenge \nb)  Try a specific challenge \nr)  Reset the score_tracker file, this will erase all the saved scores.  \ns)  Save current scores to the score_tracker file \nv)  View session scores \nd)  Reset session score\ngg) Exit, you can save your scores before exiting as well.")
+    global tab
+    global sqr
+    global cube
+    global recip
+    global rapidsc
+    global rapidat
+    print("\nWould you like to \na)  Go through the complete practice mode  \nb)  Try a specific challenge \nf)  Try challenge mode (10 mins, random problems)\nr)  Reset the score_tracker file, this will erase all the saved scores.  \ns)  Save current scores to the score_tracker file \nv)  View session scores \nd)  Reset session score\ngg) Exit, you can save your scores before exiting as well.")
     f=input("\nEnter your choice: ")
     if f.lower()=="r":
         filename = "score_tracker.csv"
@@ -307,12 +314,46 @@ def start_ch():
     elif f=='s':
         wrt_scrs()
     elif f.lower()=="a":
-        add_ch()
-        sub_ch()
-        tab_ch()
-        sq_ch()
-        cube_ch()
-        recip_ch()
+        print("\nFour digit addition [5 mins] ")
+        res=input("Press any key to start, gg to skip -> ")
+        if res.lower()!="gg":
+            add_ch(300)
+        print("\nFour digit subtraction, enter absolute values only. [5 mins]")
+        res=input("Press any key to start, gg to skip -> ")
+        if res.lower()!="gg":
+            sub_ch(300)
+        print("\nNow, let's see if you remember the multiplication table upto 30. [1 min]")
+        res=input("Press any key to start, gg to skip -> ")
+        if res.lower()!="gg":
+            tab_ch(60)
+            if len(tab)!=0:
+                print("Tables you got wrong:", end=" ")
+                print(*tab, sep=", ")
+                tab=[]
+        print("\nDo you remember the squares upto 30? Let's see! [30 secs]")
+        res=input("Press any key to start, gg to skip -> ")
+        if res.lower()!="gg":
+            sq_ch(30)
+            if len(sqr)!=0:
+                print("Squares you got wrong:", end=" ")
+                print(*sqr, sep=", ")
+                sqr=[]
+        print("\nDo you remember the cubes upto 15? Let's see! 30 secs")
+        res=input("Press any key to start, gg to skip -> ")
+        if res.lower()!="gg":
+            cube_ch(30)
+            if len(cube)!=0:
+                print("Cubes you got wrong:", end=" ")
+                print(*cube, sep=", ")
+                cube=[]
+        print("\nDo you remember your reciprocals? Answer reciprocals as percentage only and upto 2 places of decimal. For example, 1/2 as 50 (no % after your answer). Let's see! [30 secs]")
+        res=input("Press any key to start, gg to skip -> ")
+        if res.lower()!="gg":
+            recip_ch(30)
+            if len(recip)!=0:
+                print("Reciprocals you got wrong:", end=" ")
+                print(*recip, sep=", ")
+                recip=[]
         print("Challenge completed!\n")
         get_score()
     elif f.lower()=="b":
@@ -324,11 +365,46 @@ def start_ch():
         res_scr()
         print("\nSession scores have been reset!")
         start_ch()
+    elif f.lower()=='f':
+        rapidsc=0
+        rapidat=0
+        print("\nWelcome to challenge mode [5 mins]")
+        res=input("Press any key to start, gg to go back to main menu -> ")
+        if res.lower()!="gg":
+            rapid_mode(300)
+            print("\nYou scored "+str(rapidsc)+" out of "+str(rapidat)+" problems that you attempted" )
+        rapidsc=0
+        rapidat=0
     else:
         print("\nWrong input")
         start_ch()
     start_ch()    
-#get_score()
+
+def rapid_mode(s):
+    global sqr
+    global cube
+    global recip
+    global tab
+    t=time.time() + s
+    while time.time()<=t:
+        c=r.randint(1, 6)
+        if c==1:
+            add_ch(1)
+        elif c==2:
+            sub_ch(1)
+        elif c==3:
+            tab_ch(1)
+            tab=[]
+        elif c==4:
+            recip_ch(1)
+            recip=[]
+        elif c==5:
+            sq_ch(1)
+            sqr=[]
+        else:
+            cube_ch(1)
+            cube=[]
+        
 print("\nWelcome to the speed math challange, each test has some limited time to complete, try to get as much score as possible. \nI advise taking this test (or any other) daily to improve faster. Please don't use calculators and try to use pen as less as possible. You are only cheating with yourself by using a calculator.\n")
 start_ch()
         
