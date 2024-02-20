@@ -379,7 +379,7 @@ def start_ch():
         print("\nDo you remember the cubes upto 15? Let's see! 15 secs")
         res=input("Press any key to start, gg to skip -> ")
         if res.lower()!="gg":
-            cube_ch(30)
+            cube_ch(15)
             if len(cube)!=0:
                 print("Cubes you got wrong:", end=" ")
                 print(*cube, sep=", ")
