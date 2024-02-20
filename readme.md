@@ -34,6 +34,7 @@ This needs to have python3 installed on your machine, recommended python version
 - Custom full challenge mode to choose which tasks to include in the full challenge mode with custom time limit.
 - Store the custom challenge profiles to disk.
 - Rapid mode, a short challenge mode with random tasks to complete.    <code>Added, renamed to challenge mode</code>
+- GUI version of the program
 
 ### How to use this program
 
