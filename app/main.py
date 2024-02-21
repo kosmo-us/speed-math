@@ -95,7 +95,7 @@ def sub_ch(s):
     global rapidat
     t = time.time() + s
     while time.time() <= t:
-        rapidat==1
+        rapidat+=1
         a=r.randint(1000, 9999)
         b=r.randint(1000, 9999)
         #print("|"+a+"-"+b+"|= ")
